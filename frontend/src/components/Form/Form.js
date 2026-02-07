@@ -6,7 +6,7 @@ import useRecommendations from '../../hooks/useRecommendations';
 import { Features, Preferences, RecommendationType } from './Fields';
 import { SubmitButton } from './SubmitButton';
 
-function Form() {
+function Form({ onUpdateRecommendations }) {
   const { preferences, features, products } = useProducts();
   const { formData, handleChange } = useForm({
     selectedPreferences: [],
@@ -14,15 +14,22 @@ function Form() {
     selectedRecommendationType: '',
   });
 
-  const { getRecommendations, recommendations } = useRecommendations(products);
+  // const { getRecommendations, recommendations } = useRecommendations(products); // Código antigo -> Removido porque `recommendations` não refletia o resultado atualizado do submit atual.
+  const { getRecommendations } = useRecommendations(products);
 
   const handleSubmit = (e) => {
     e.preventDefault();
     const dataRecommendations = getRecommendations(formData);
 
-    /**
-     * Defina aqui a lógica para atualizar as recomendações e passar para a lista de recomendações
-     */
+    // const finalRecommendations =
+    //   dataRecommendations.length > 0
+    //     ? dataRecommendations
+    //     : recommendations;
+
+    // onUpdateRecommendations(finalRecommendations); // Estava usando assim apenas para satisfazer o Lint, ou seja, estava apenas maquiando o uso do "recommendations"
+
+    onUpdateRecommendations(dataRecommendations);
+    // Novo fluxo -> Utiliza diretamente o retorno do service para garantir que as recomendações correspondam exatamente aos dados submetidos.
   };
 
   return (
