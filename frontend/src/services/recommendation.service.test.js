@@ -1,7 +1,7 @@
 import mockProducts from '../mocks/mockProducts';
 import getRecommendationsFromService from './recommendation.service';
 
-describe('recommendationService', () => {
+describe('getRecommendationsFromService', () => {
   test('Retorna recomendação correta para SingleProduct com base nas preferências selecionadas', () => {
     const formData = {
       selectedPreferences: ['Integração com chatbots'],
