@@ -8,8 +8,9 @@ function RecommendationList({ recommendations }) {
 
       <ul>
         {recommendations.map((recommendation, index) => (
-          <li key={index} className="mb-2">
+          <li key={index} className="mb-2 border border-black/15 rounded-lg px-6 py-8 font-semibold hover:bg-zinc-100 transition-colors cursor-pointer">
             {recommendation.name}
+            <p className="text-zinc-500 text-sm font-normal">{recommendation.category}</p>
           </li>
         ))}
       </ul>
