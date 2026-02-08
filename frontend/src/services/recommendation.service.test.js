@@ -1,5 +1,5 @@
 import mockProducts from '../mocks/mockProducts';
-import recommendationService from './recommendation.service';
+import getRecommendationsFromService from './recommendation.service';
 
 describe('recommendationService', () => {
   test('Retorna recomendação correta para SingleProduct com base nas preferências selecionadas', () => {
@@ -9,7 +9,7 @@ describe('recommendationService', () => {
       selectedRecommendationType: 'SingleProduct',
     };
 
-    const recommendations = recommendationService.getRecommendations(
+    const recommendations = getRecommendationsFromService(
       formData,
       mockProducts
     );
@@ -32,7 +32,7 @@ describe('recommendationService', () => {
       selectedRecommendationType: 'MultipleProducts',
     };
 
-    const recommendations = recommendationService.getRecommendations(
+    const recommendations = getRecommendationsFromService(
       formData,
       mockProducts
     );
@@ -57,7 +57,7 @@ describe('recommendationService', () => {
       selectedRecommendationType: 'SingleProduct',
     };
 
-    const recommendations = recommendationService.getRecommendations(
+    const recommendations = getRecommendationsFromService(
       formData,
       mockProducts
     );
@@ -72,7 +72,7 @@ describe('recommendationService', () => {
       selectedRecommendationType: 'SingleProduct',
     };
 
-    const recommendations = recommendationService.getRecommendations(
+    const recommendations = getRecommendationsFromService(
       formData,
       mockProducts
     );
